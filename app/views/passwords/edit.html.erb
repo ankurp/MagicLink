@@ -1,0 +1,30 @@
+<h1>Update Password</h1>
+
+<%= form_with model: @user, url: password_path do |form| %>
+  <% if form.object.errors.any? %>
+    <p class="notice">
+      <% form.object.errors.full_messages.each do |message| %>
+        <%= message %> <br />
+      <% end %>
+    </p>
+  <% end %>
+
+  <div>
+    <%= form.label "Current Password" %>
+    <%= form.password_field :password_challenge %>
+  </div>
+
+  <div>
+    <%= form.label "New Password" %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Password" %>
+  </div>
+<% end %>
